@@ -1,6 +1,6 @@
 # 1. Descrição
 
-Teste de uma nova forma mais enxuta de escrever serviços no dotnet 6.0
+Teste de uma nova forma mais simplificada de escrever serviços no dotnet 6.0
 
 # 2. Endpoints
 
@@ -59,3 +59,23 @@ exem
 ]
 
 ```
+
+# 4. Docker
+
+## 4.1. Build imagem
+
+Na raiz aonde está o Dockerfile
+
+```
+docker build -t algum_nome_imagem .
+```
+
+## 4.2. Executar imagem
+
+```
+docker run --name algum_nome -p 8088:80 -d algum_nome_imagem
+```
+
+[http://localhost:8088/api/fornecedores](http://localhost:8088/api/fornecedores)
+
+[http://localhost:8088/api/fornecedores/1](http://localhost:8088/api/fornecedores/1)
