@@ -75,3 +75,11 @@ docker run --name algum_nome -p 8088:80 -d algum_nome_imagem
 ```
 docker push alissonrocio/minimalapi-dotnet6:latest
 ```
+
+# 5. Kubernetes
+
+Criação de um deployment com 3 réplicas e um nodeport para acesso local.
+
+```
+kubectl apply -f k8s/deployment.yaml
+```
