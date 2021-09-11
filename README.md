@@ -4,19 +4,13 @@ Teste de uma nova forma mais simplificada de escrever serviços no dotnet 6.0
 
 # 2. Endpoints
 
-## [Get] - Lista Fornecedores
-
-Url: /api/fornecedores/
-
-Exemplo: [https://localhost:5001/api/fornecedores](https://localhost:5001/api/fornecedores)
-
-## [Get] - Fornecedor pelo Id
-
-Url: /api/fornecedores/1
-
-Exemplo: [https://localhost:5001/api/fornecedores/1](https://localhost:5001/api/fornecedores/1)
-
-exem
+| Verbos | Url                    | Descrição                       |
+| ------ | ---------------------- | ------------------------------- |
+| Get    | /api/fornecedores/     | Lista todos os fornecedores     |
+| Get    | /api/fornecedores/{id} | Retorna o fornecedor pela chave |
+| Post   | /api/fornecedor/       | Adiciona um novo fornecedor     |
+| Put    | /api/fornecedor/{id}   | Atualiza os dados do fornecedor |
+| Delete | /api/fornecedor/{id}   | Remove um fornecedor pela chave |
 
 # 3. Datasource - json
 
@@ -76,6 +70,8 @@ docker build -t algum_nome_imagem .
 docker run --name algum_nome -p 8088:80 -d algum_nome_imagem
 ```
 
-[http://localhost:8088/api/fornecedores](http://localhost:8088/api/fornecedores)
+## 4.3. Docker hub
 
-[http://localhost:8088/api/fornecedores/1](http://localhost:8088/api/fornecedores/1)
+```
+docker push alissonrocio/minimalapi-dotnet6:latest
+```
