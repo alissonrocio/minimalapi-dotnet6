@@ -73,7 +73,7 @@ docker run --name algum_nome -p 8088:80 -d algum_nome_imagem
 ## 4.3. Docker Hub
 
 ```
-docker push alissonrocio/minimalapi-dotnet6:latest
+docker pull alissonrocio/minimalapi-dotnet6:latest
 ```
 
 # 5. Kubernetes
