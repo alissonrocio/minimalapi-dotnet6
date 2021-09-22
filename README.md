@@ -1,4 +1,4 @@
-# 1.  Descrição
+# 1. Descrição
 
 Teste de uma nova forma mais simplificada de escrever serviços no dotnet 6.0
 
