@@ -42,7 +42,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.SourcesDirectory)/web'
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)/web/Dockerfile'
+    sourceFolder: '$(Build.SourcesDirectory)/web'
     contents: 'Dockerfile'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
