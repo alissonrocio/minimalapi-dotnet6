@@ -44,7 +44,7 @@ steps:
   inputs:
     cleanTargetFolder: true
     sourceFolder: '$(Build.SourcesDirectory)/web'
-    contents: 'Dockerfile'
+    contents: '**'
     targetFolder: '$(Build.ArtifactStagingDirectory)/files'
 
 # Package the file and uploads them as an artifact of the build
