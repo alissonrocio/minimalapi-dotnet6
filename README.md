@@ -95,6 +95,12 @@ Na pasta tests
 ```
 dotnet test
 ```
+# 7. CI/CD
 
+## Pipeline 
 
+azure-pipelines.yml
 
+## Release
+
+![ci/cd](images/cicd_1.png)
