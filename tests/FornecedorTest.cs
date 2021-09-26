@@ -20,11 +20,12 @@ public class UnitTestFornecedor
         Assert.True(fornecedores.Count > 0 );
     }
 
+    [Fact]
     public async Task GetById()
     {
         await using var application = new TodoApplication();
         var client = application.CreateClient();
         var fornecedores = await client.GetFromJsonAsync<Fornecedor>("/api/fornecedores/1");
-        Assert.Equal(fornecedores.Nome,"Jason Bourne");
+        Assert.Equal(fornecedores.Nome,"Jason Bournes");
     }
 }

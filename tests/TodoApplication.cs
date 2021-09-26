@@ -21,6 +21,8 @@ class TodoApplication : WebApplicationFactory<Program>
 
         builder.ConfigureServices(services =>
         {
+            services.RemoveAll(typeof(DbContextOptions<MockDbContext>));
+
             services.AddDbContext<MockDbContext>(options =>
                 options.UseInMemoryDatabase("Testing", root));
         });
