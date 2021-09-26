@@ -17,28 +17,21 @@ variables:
 # Build the app for .NET 6 framework
 steps:
 - task: UseDotNet@2
+  displayName: 'Build .NET 6 Application'
   inputs:
     version: $(dotNetVersion)
     includePreviewVersions: true
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'Build .NET 6 Application'
+- script: dotnet build --configuration $(buildConfiguration) 
   
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet test'
+  displayName: 'Test .NET 6 Application'
   inputs:
     command: 'test'
     arguments: '--configuration $(buildConfiguration)'
-    #publishTestResults: true
-    #projects: 'tests' # update with your test project directory
-  
-#- task: PublishCodeCoverageResults@1
-#  displayName: 'Publish code coverage report'
-#  inputs:
-#    codeCoverageTool: 'Cobertura'
-#    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
 # Publish it as .NET 6 self-contained application for linux runtime
 - task: DotNetCoreCLI@2
+  displayName: 'Publish .NET 6 Application'
   inputs:
     command: publish
     publishWebProjects: True
@@ -47,20 +40,16 @@ steps:
 
 # Copy dockerfile to directory
 - task: CopyFiles@2
+  displayName: 'Copy Dockerfile to Stagin Directory'
   inputs:
+    sourceFolder: '$(agent.builddirectory)'
     contents: 'Dockerfile'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
 # Package the file and uploads them as an artifact of the build
 - task: PublishPipelineArtifact@1
+  displayName: 'Publish Artifact'
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'MinimalAPI'
 
-#Publish it to the Azure App Service
-#- task: AzureWebApp@1
-#  inputs:
-#    appType: webAppLinux
-#    azureSubscription: $(azureSPNName) #this is the name of the SPN
-#    appName: $(azureAppServiceName) #App Service's unique name
-#    package: $(Build.ArtifactStagingDirectory)/**/*.zip
