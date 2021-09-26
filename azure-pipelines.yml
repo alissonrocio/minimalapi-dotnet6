@@ -42,7 +42,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Dockerfile to Stagin Directory'
   inputs:
-    sourceFolder: '$(agent.builddirectory)'
+    sourceFolder: '$(Build.SourcesDirectory)'
     contents: 'Dockerfile'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
