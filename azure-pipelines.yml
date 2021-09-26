@@ -39,12 +39,13 @@ steps:
     zipAfterPublish: True
 
 # Copy dockerfile to directory
-#- task: CopyFiles@2
-#  displayName: 'Copy Files to: $(Build.SourcesDirectory)/web'
-#  inputs:
-#    sourceFolder: '$(Build.SourcesDirectory)/web'
-#    contents: '*.*'
-#    targetFolder: '$(Build.ArtifactStagingDirectory)/files'
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.SourcesDirectory)/web'
+  inputs:
+    cleanTargetFolder: true
+    sourceFolder: '$(Build.SourcesDirectory)/web'
+    contents: 'Dockerfile'
+    targetFolder: '$(Build.ArtifactStagingDirectory)/files'
 
 # Package the file and uploads them as an artifact of the build
 - task: PublishPipelineArtifact@1
