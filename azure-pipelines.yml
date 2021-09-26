@@ -40,9 +40,9 @@ steps:
 
 # Copy dockerfile to directory
 - task: CopyFiles@2
-  displayName: 'Copy Dockerfile to Stagin Directory'
+  displayName: 'Copy Files to: $(Build.SourcesDirectory)/web'
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
+    sourceFolder: '$(Build.SourcesDirectory)/web/Dockerfile'
     contents: 'Dockerfile'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
 
