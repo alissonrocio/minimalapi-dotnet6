@@ -22,6 +22,20 @@ steps:
     includePreviewVersions: true
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'Build .NET 6 Application'
+  
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
+    command: 'test'
+    arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
+    publishTestResults: true
+    projects: 'Tests' # update with your test project directory
+  
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
 # Publish it as .NET 6 self-contained application for linux runtime
 - task: DotNetCoreCLI@2
