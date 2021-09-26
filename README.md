@@ -87,3 +87,14 @@ kubectl apply -f k8s/deployment.yaml
 # 5. Deploy
 
 [Get/ Fornecedores](https://minimalapi-dotnet6.azurewebsites.net/api/fornecedores)
+
+# 6. Testes
+
+Na pasta tests
+
+```
+dotnet test
+```
+
+
+
