@@ -20,6 +20,7 @@ public class UnitTestFornecedor
         Assert.True(fornecedores.Count > 0 );
     }
 
+    [Fact]
     public async Task GetById()
     {
         await using var application = new TodoApplication();
