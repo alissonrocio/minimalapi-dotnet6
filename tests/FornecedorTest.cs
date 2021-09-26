@@ -25,6 +25,6 @@ public class UnitTestFornecedor
         await using var application = new TodoApplication();
         var client = application.CreateClient();
         var fornecedores = await client.GetFromJsonAsync<Fornecedor>("/api/fornecedores/1");
-        Assert.Equal(fornecedores.Nome,"Jason Bourne");
+        Assert.Equal(fornecedores.Nome,"Jason Bournes");
     }
 }
