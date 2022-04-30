@@ -86,4 +86,4 @@ kubectl apply -f k8s/deployment.yaml
 
 # 5. Deploy
 
-[Get/ Fornecedores](https://minimalapi-dotnet6.azurewebsites.net/api/fornecedores)
+[https://minimalapi-dotnet6.azurewebsites.net](https://minimalapi-dotnet6.azurewebsites.net)
