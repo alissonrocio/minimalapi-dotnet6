@@ -84,9 +84,11 @@ Criação de um deployment com 3 réplicas e um nodeport para acesso local.
 kubectl apply -f k8s/deployment.yaml
 ```
 
-# 5. Deploy
+# 5. Produção / Testes
 
-[Get/ Fornecedores](https://minimalapi-dotnet6.azurewebsites.net/api/fornecedores)
+[https://minimalapi-dotnet6.azurewebsites.net/api/fornecedores](https://minimalapi-dotnet6.azurewebsites.net/api/fornecedores)
+
+[https://test-minimalapi-dotnet6.azurewebsites.net](https://test-minimalapi-dotnet6.azurewebsites.net)
 
 # 6. Testes
 
