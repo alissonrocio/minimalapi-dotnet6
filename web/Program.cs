@@ -2,12 +2,28 @@ using Microsoft.EntityFrameworkCore;
 using web;
 using web.database;
 using web.Models;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MockDbContext>(options => options.UseInMemoryDatabase("MockDB"));
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c => { 
+    c.EnableAnnotations(); 
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+});  
+builder.Services.AddMvc();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+ { 
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "MinimalApi v1"); 
+    c.RoutePrefix = "";
+ });
+app.UseHealthChecks("/hc");
 
 if (app.Environment.IsDevelopment())
 {
