@@ -36,7 +36,7 @@ steps:
     command: publish
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --framework $(dotNetFramework) --runtime $(targetRuntime) --self-contained --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
+    #zipAfterPublish: True
 
 # Copy dockerfile to directory
 #- task: CopyFiles@2
